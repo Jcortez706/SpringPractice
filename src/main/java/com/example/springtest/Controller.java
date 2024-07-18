@@ -23,12 +23,13 @@ public class Controller {
     }
 
     @DeleteMapping("/{id}") String delete(@PathVariable("id") int id){
-        // Calls delete method on number
+        // Calls delete method on id
         Details.delete(id);
         return "Data Deleted";
     }
     @PutMapping("/put")
     String put (@RequestBody Details ob){
+        // Updates specific number with new number
         Details.put(ob.number, ob.newNumber);
         return "Data Updated";
     }
