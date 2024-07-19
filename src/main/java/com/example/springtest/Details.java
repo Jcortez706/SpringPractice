@@ -25,8 +25,8 @@ public class Details {
 
     public static void put(int number, int newNumber) {
         int temp = Data.indexOf(number);
-        Data.remove((Integer) number);
-        Data.set(temp-1, newNumber);
-        System.out.println(Data.get(temp));
+        if (temp != -1) {
+            Data.set(temp, newNumber);
+        }
     }
 }
