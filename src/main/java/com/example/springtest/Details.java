@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Details {
-    // Creating an object of ArrayList
     static List<Integer> Data
             = new ArrayList<Integer>();
     int newNumber;
