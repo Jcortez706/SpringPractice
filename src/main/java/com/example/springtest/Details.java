@@ -9,6 +9,7 @@ public class Details {
     int newNumber;
     int number;
     String name;
+    Details(){}
     Details(int number)
     {
         this.number = number;
@@ -17,6 +18,13 @@ public class Details {
     {
         this.number = number;
         this.newNumber = newNumber;
+    }
+    public String insertData(int number){
+        Data.add(number);
+        return "Done";
+    }
+    public String getData(){
+        return Data.toString();
     }
 
     public static void delete(int number) {
