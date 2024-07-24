@@ -15,7 +15,7 @@ public class Controller {
     @GetMapping("/get")
     String getData(){
         // Get request displays data
-        return "Data " + numbers;
+        return "Data " + numbers.toString();
     }
 
     @CrossOrigin(origins = "http://127.0.0.1:8080")
