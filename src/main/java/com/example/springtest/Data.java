@@ -3,16 +3,17 @@ package com.example.springtest;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "data")
 public class Data {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int iddata;
+    private int iddata = 0;
+
     @Column(name= "datacol", nullable = false)
     private int datacol;
 
     public Data(){}
-    public Data(int iddata, int datacol){
-        this.setIddata(iddata);
+    public Data(int datacol){
         this.setDatacol(datacol);
     }
 
