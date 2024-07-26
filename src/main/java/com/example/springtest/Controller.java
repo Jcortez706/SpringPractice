@@ -1,5 +1,6 @@
 package com.example.springtest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -8,14 +9,15 @@ import java.util.Map;
 
 
 @RestController
-
 public class Controller {
     private final List<Integer> numbers = new ArrayList<>();
+    @Autowired
+    DataRepository dataRepository;
     @CrossOrigin(origins = "http://127.0.0.1:8080")
     @GetMapping("/get")
     String getData(){
         // Get request displays data
-        return "Data " + numbers.toString();
+        return "Data " + dataRepository.findAllDatacol();
     }
 
     @CrossOrigin(origins = "http://127.0.0.1:8080")
@@ -23,8 +25,8 @@ public class Controller {
     String insertData(@RequestBody Map<String, Integer> request)
     {
         // Adds an int to Data
-        Integer number = request.get("number");
-        numbers.add(number);
+        Data data = new Data(request.get("number"));
+        dataRepository.save(data);
         return "Data Inserted";
     }
 
@@ -32,7 +34,7 @@ public class Controller {
     @DeleteMapping("/{id}")
     String deleteData(@PathVariable("id") int id){
         // Calls delete method on id
-        numbers.remove((Integer) id);
+        dataRepository.deleteData(id);
         return "Data Deleted";
     }
     @CrossOrigin(origins = "http://127.0.0.1:8080")
@@ -41,10 +43,7 @@ public class Controller {
         // Updates specific number with new number
         Integer newNumber = update.get("new");
         Integer numberToReplace = update.get("number");
-        int temp = numbers.indexOf(numberToReplace);
-        if (temp != -1) {
-            numbers.set(temp, newNumber);
-        }
+        dataRepository.updataDatacolByID(newNumber, numberToReplace);
         return "Data Updated";
     }
 }
