@@ -2,6 +2,7 @@ package com.example.springtest;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -12,7 +13,7 @@ public class Weather {
     private int weatherID = 0;
 
     @Column(name= "date", nullable = false)
-    private Date date;
+    private LocalDate date;
 
     @Column(name= "description", nullable = false)
     private String description;
@@ -20,6 +21,8 @@ public class Weather {
     @ManyToOne
     @JoinColumn(name = "locationID")
     private Location locationID;
+
+    public Weather(){}
 
     public Weather(int weatherID){
         this.setWeatherID(weatherID);
@@ -30,11 +33,11 @@ public class Weather {
     }
 
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
