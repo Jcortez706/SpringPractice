@@ -9,9 +9,9 @@ import java.util.List;
 
 @Repository
 public interface LocationRepository extends JpaRepository<Location, Integer> {
-    @Query("SELECT l.locationID FROM location l")
+    @Query("SELECT l.locationID FROM Location l")
     List<Integer> findAllLocations();
 
-    @Query("SELECT l FROM location l WHERE l.city = :city")
+    @Query("SELECT l FROM Location l WHERE l.city = :city")
     List<Location> findLocationByCity(@Param("city") String city);
 }
