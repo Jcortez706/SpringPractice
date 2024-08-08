@@ -14,15 +14,4 @@ public interface LocationRepository extends JpaRepository<Location, Integer> {
 
     @Query("SELECT l FROM location l WHERE l.city = :city")
     List<Location> findLocationByCity(@Param("city") String city);
-
-//    @Query("DELETE FROM Data d where d.datacol = :datacol")
-//    @Transactional
-//    @Modifying
-//    int deleteData(int datacol);
-//
-//    @Query("UPDATE Data d SET d.datacol = :newDatacol WHERE d.id = :id")
-//    @Transactional
-//    @Modifying
-//    int updataDatacolByID(int id, int newDatacol);
-
 }
