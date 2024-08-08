@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class LoadDatabase {
     @Bean
-    CommandLineRunner initDatabase(DataRepository repository){
+    CommandLineRunner initDatabase(LocationRepository repository){
         return args ->{
             repository.findAll().forEach(data -> System.out.println("Loaded " + data));
         };
