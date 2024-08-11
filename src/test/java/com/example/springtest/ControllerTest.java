@@ -27,7 +27,7 @@ class TestingWebApplicationTest {
     }
     @Test
     public void testFindWeatherByDate(){
-        LocalDate date = LocalDate.parse("2024-08-08");
+        LocalDate date = LocalDate.parse("2024-08-09");
         List<Weather> Weather = weatherRepository.findWeatherByDate(date);
         assertThat(Weather).isNotEmpty();
     }
