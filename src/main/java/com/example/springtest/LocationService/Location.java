@@ -1,4 +1,4 @@
-package com.example.springtest;
+package com.example.springtest.LocationService;
 
 import jakarta.persistence.*;
 

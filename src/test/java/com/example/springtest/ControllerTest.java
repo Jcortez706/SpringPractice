@@ -1,5 +1,9 @@
 package com.example.springtest;
 
+import com.example.springtest.LocationService.Location;
+import com.example.springtest.LocationService.LocationRepository;
+import com.example.springtest.WeatherService.Weather;
+import com.example.springtest.WeatherService.WeatherRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

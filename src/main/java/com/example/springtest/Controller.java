@@ -1,5 +1,7 @@
 package com.example.springtest;
 
+import com.example.springtest.LocationService.Location;
+import com.example.springtest.LocationService.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

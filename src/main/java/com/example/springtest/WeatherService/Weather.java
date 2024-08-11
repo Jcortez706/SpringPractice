@@ -1,9 +1,9 @@
-package com.example.springtest;
+package com.example.springtest.WeatherService;
 
+import com.example.springtest.LocationService.Location;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "weather")
