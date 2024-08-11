@@ -19,7 +19,7 @@ public class Weather {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "locationID")
+    @JoinColumn(name = "id_location_code")
     private Location locationID;
 
     public Weather(){}
