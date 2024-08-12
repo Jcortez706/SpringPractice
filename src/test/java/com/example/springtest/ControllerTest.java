@@ -1,5 +1,7 @@
 package com.example.springtest;
 
+import com.example.springtest.LocationCodeService.LocationCode;
+import com.example.springtest.LocationCodeService.LocationCodeRepository;
 import com.example.springtest.LocationService.Location;
 import com.example.springtest.LocationService.LocationRepository;
 import com.example.springtest.WeatherService.Weather;
@@ -23,6 +25,9 @@ class TestingWebApplicationTest {
 
     @Autowired
     WeatherRepository weatherRepository;
+
+    @Autowired
+    LocationCodeRepository locationCodeRepository;
     @Test
     public void testFindLocationsByCity() {
 
@@ -34,6 +39,12 @@ class TestingWebApplicationTest {
         LocalDate date = LocalDate.parse("2024-08-09");
         List<Weather> Weather = weatherRepository.findWeatherByDate(date);
         assertThat(Weather).isNotEmpty();
+    }
+
+    @Test
+    public void testFindLocationCodeId(){
+        List<Integer> locationCode = locationCodeRepository.findAllLocations();
+        assertThat(locationCode).isNotEmpty();
     }
 
 //    @Autowired
