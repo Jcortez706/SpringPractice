@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface WeatherRepository extends JpaRepository<Weather, Integer> {
-    @Query("SELECT w.weatherID FROM Weather w")
+    @Query("SELECT w.idWeather FROM Weather w")
     List<Integer> findAllWeather();
 
     @Query("SELECT w FROM Weather w WHERE w.date = :date")
