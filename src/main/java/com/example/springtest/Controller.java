@@ -1,12 +1,13 @@
 package com.example.springtest;
 
+import com.example.springtest.WeatherService.Weather;
 import com.example.springtest.WeatherService.WeatherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -25,4 +26,10 @@ public class Controller {
         return Arrays.toString(locationArray);
     }
 
+    @CrossOrigin(origins = "http://127.0.0.1:8080")
+    @PostMapping("/post")
+    HttpStatus createWeather(@RequestBody Weather weatherInput){
+        weatherRepository.save(weatherInput);
+        return HttpStatus.CREATED;
+    }
 }

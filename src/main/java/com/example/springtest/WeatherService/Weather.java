@@ -2,8 +2,6 @@ package com.example.springtest.WeatherService;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
 @Entity
 @Table(name = "weather")
 public class Weather {
@@ -13,7 +11,7 @@ public class Weather {
     private int idWeather = 0;
 
     @Column(name= "date", nullable = false)
-    private LocalDate date;
+    private String date;
 
     @Column(name= "description", nullable = false)
     private String description;
@@ -27,7 +25,17 @@ public class Weather {
     @Column (name = "country")
     private String country;
 
+    public Weather(Integer idWeather, String date, String description, String city, String state, String country){
+        this.idWeather = idWeather;
+        this.date = date;
+        this.description = description;
+        this.city = city;
+        this.state = state;
+        this.country = country;
+    }
+
     public Weather(){}
+
 
     public Weather(int weatherID){
         this.setWeatherID(weatherID);
@@ -38,11 +46,11 @@ public class Weather {
     }
 
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
