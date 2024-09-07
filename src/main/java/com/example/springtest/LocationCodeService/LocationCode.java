@@ -10,27 +10,45 @@ public class LocationCode {
     @Column(name = "id_location_code")
     private int locationCodeID = 0;
 
-    @Column(name= "location_code", nullable = false)
+    @Column(name = "location_code", nullable = false)
     private String locationCode;
 
-    public LocationCode(){}
-    public LocationCode(int locationCodeID){
-        this.setLocationCodeID(locationCodeID);
-    }
-    @Override
-    public String toString(){
-        return locationCodeID+","+locationCode;
-    }
-    public Integer getLocationCodeID(){
-        return locationCodeID;
+    @Column(name = "city", nullable = false)
+    private String city;
+
+    public LocationCode() {}
+
+    public LocationCode(String locationCode, String city) {
+        this.locationCode = locationCode;
+        this.city = city;
     }
 
-    public String getLocationCode() {
-        return locationCode;
+    @Override
+    public String toString() {
+        return locationCodeID + "," + locationCode;
+    }
+
+    public int getLocationCodeID() {
+        return locationCodeID;
     }
 
     public void setLocationCodeID(int locationCodeID) {
         this.locationCodeID = locationCodeID;
     }
 
+    public String getLocationCode() {
+        return locationCode;
+    }
+
+    public void setLocationCode(String locationCode) {
+        this.locationCode = locationCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 }

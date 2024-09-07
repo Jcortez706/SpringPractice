@@ -14,5 +14,11 @@ public interface WeatherRepository extends JpaRepository<Weather, Integer> {
     List<Integer> findAllWeather();
 
     @Query("SELECT w FROM Weather w WHERE w.date = :date")
-    List<Weather> findWeatherByDate(@Param("date") LocalDate date);
+    List<Weather> findWeatherByDate(@Param("date") String date);
+
+    @Query("SELECT lc.locationCode FROM Weather w JOIN LocationCode lc ON w.city = lc.city")
+    List<String> findLocationCodesByCity();
+
+    @Query("Select w FROM Weather w WHERE w.date = :date AND w.city = :city")
+    List<Weather> findWeatherByDateAndCity(@Param("date") String date, @Param("city") String city);
 }
